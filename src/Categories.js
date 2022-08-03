@@ -1,27 +1,21 @@
 import React, { useEffect } from "react";
 
-function Categories({ data }) {
-  const buttonsList = [];
-  //   console.log(buttonsList);
-  const makeCategories = () => {
-    for (let item of data) {
-      if (!buttonsList.includes(item.category)) {
-        buttonsList.push(item.category);
-      }
-    }
-    return buttonsList;
-  };
-
-  useEffect(() => {
-    makeCategories();
-  }, []);
-
+function Categories({ categories, filter }) {
   return (
-    <>
-      {buttonsList.map((button) => {
-        return <h1>{button}</h1>;
+    <div className="btn-container">
+      {categories.map((category, index) => {
+        return (
+          <button
+            type="button"
+            className="filter-btn"
+            key={index}
+            onClick={() => filter(category)}
+          >
+            {category}
+          </button>
+        );
       })}
-    </>
+    </div>
   );
 }
 

@@ -1,7 +1,6 @@
 import React from "react";
 
 function Menu({ items }) {
-  console.log(items);
   return (
     <>
       <div className="section-center">
